@@ -1,0 +1,11 @@
+# Cache rules (Cloudflare Pages). Build assets are content-hashed, so
+# they cache forever; a new build means new filenames. The hero films
+# and images keep stable names, so they cache for 30 days: when the
+# film changes, bump the filename (hero-1080-v2.mp4) instead of
+# relying on expiry.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+/video/*
+  Cache-Control: public, max-age=2592000
+/img/*
+  Cache-Control: public, max-age=2592000
