@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/img/logo.png" />
+    <link rel="icon" type="image/webp" sizes="64x64" href="/img/favicon.webp" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon-180.png" />
     <meta name="theme-color" content="#0a0a09" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Deliberately un-SEO'd (Lex, 2026-11-07): a portfolio people
@@ -12,9 +15,33 @@
     <title>Alexander Santiago — AI Engineer | Portfolio</title>
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/anton-400.woff2" />
     <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/grotesk-400.woff2" />
-    <script type="module" crossorigin src="/assets/index-_dFQHvJy.js"></script>
+    <!-- Space Grotesk 700 is the bold voice of the first screen: the
+         four bold phrases in the hero paragraph (Lexmakesit,
+         point-of-sale system, AI receptionist, infrastructure) are
+         the only first-screen text set in it, and without a preload
+         it was discovered after the React render, starting ~190ms
+         behind every preloaded font, so those phrases swapped in
+         late. It is the same size as the 400 weight already
+         preloaded, and 4% of the skulls file it now starts beside. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/grotesk-700.woff2" />
+    <!-- Pixel Operator Mono is the board's mono voice: the terminal,
+         the status rows, the labels, the receipts. It was the only
+         family with no preload and no font-display, so it was
+         discovered last (after the CSS and React render) and its
+         text could sit hidden on a slow connection. Both weights
+         together are under 9 KB, so they preload with the other
+         first-screen fonts and swap in like them. -->
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/PixelOperatorMono.woff2" />
+    <link rel="preload" as="font" type="font/woff2" crossorigin href="/fonts/PixelOperatorMono-Bold.woff2" />
+    <!-- The skulls are the first screen: hero art, page substrate, and
+         the mid-page band, 565 KB in one file. Without this preload the
+         browser only discovers it after the React bundle loads and
+         renders, so the hero art arrives late on a real connection.
+         Preloading starts it in parallel with the JS, like the fonts. -->
+    <link rel="preload" as="image" type="image/webp" href="/img/skulls.webp" />
+    <script type="module" crossorigin src="/assets/index-DjR6eq_-.js"></script>
     <link rel="modulepreload" crossorigin href="/assets/vendor-Db-_YT-E.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-CbRv5EvO.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-UkavEkfH.css">
   </head>
   <body>
     <div id="root"></div>
